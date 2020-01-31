@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <main class="container p-3 border">
+    <main class="container p-3">
         <h1 class="display-4 text-center mt-4">Lista de tareas</h1>
         <div class="row">
-            <div class="col-md-4 offset-md-4 my-auto">
+            <div class="col-md-6 offset-md-3 my-auto">
                 <div class="card">
                     <div class="card-header">
                         <form action="/create-task" method="POST">
@@ -28,9 +28,16 @@
                     <div class="card-body">
                         <ul class="list-group">
                             {% for task in tasks %}
-                            <li class="list-group-item">
-                                {{task.content}}
-                                <a href="" class="btn btn-danger">Borrar</a>
+                            <li class="card">
+
+                                <div class="card-body">
+                                    {{task.content}}
+                                </div>
+                                <div class="card-footer">
+                                    <a href="" class="btn btn-danger">Borrar</a>
+                                    <a href="" class="btn btn-success">Marcar como finalizada</a>
+                                </div>
+
                             </li>
                             {% endfor %}
                         </ul>
