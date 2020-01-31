@@ -20,16 +20,17 @@
                     <div class="card-header">
                         <form action="/create-task" method="POST">
                             <div class="form-group">
-                                <input type="text" placeholder="Task" name="content" class="form-control" autofocus>
+                                <input type="text" placeholder="Escriba tarea..." name="content" class="form-control" autofocus>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Guardar Tarea</button>
                         </form>
                     </div>
                     <div class="card-body">
-                        <ul>
+                        <ul class="list-group">
                             {% for task in tasks %}
-                            <li>
+                            <li class="list-group-item">
                                 {{task.content}}
+                                <a href="" class="btn btn-danger">Borrar</a>
                             </li>
                             {% endfor %}
                         </ul>

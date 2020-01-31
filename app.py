@@ -19,9 +19,9 @@ def home():
 
 @app.route('/create-task', methods=['POST'])
 def create():
-    task = Task(content=request.form['content'], done=False)
-    db.session.add(task)
-    db.session.commit
+    new_task = Task(content=request.form['content'], done=False)
+    db.session.add(new_task)
+    db.session.commit()
     return redirect(url_for('home'))
 
 if __name__== '__main__':
