@@ -29,7 +29,7 @@
                         <ul class="list-group">
                             {% for task in tasks %}
                             <li class="card">
-                                <div class="card-body" style="background-color: {% if task.done %} #c23b22 {% endif %};">
+                                <div class="card-body" style="background-color: {% if task.done %} #c23b22 {% else %} white{% endif %};">
                                     <span class="{% if task.done %} done {% endif %} ">{{task.content}}</span>
                                 </div>
                                 <div class="card-footer ">
