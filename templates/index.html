@@ -20,7 +20,7 @@
                     <div class="card-header">
                         <form action="/create-task" method="POST">
                             <div class="form-group">
-                                <input type="text" placeholder="Escriba tarea..." name="content" class="form-control" autofocus>
+                                <input type="text" placeholder="Escriba el cometido de la tarea..." name="content" class="form-control" autofocus required>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Guardar Tarea</button>
                         </form>
@@ -29,15 +29,19 @@
                         <ul class="list-group">
                             {% for task in tasks %}
                             <li class="card">
-
-                                <div class="card-body">
-                                    <span class="{% if task.done %} done {% endif %}">{{task.content}}</span>
+                                <div class="card-body" style="background-color: {% if task.done %} #c23b22 {% endif %};">
+                                    <span class="{% if task.done %} done {% endif %} ">{{task.content}}</span>
                                 </div>
-                                <div class="card-footer">
-                                    <a href="/delete/{{task.id}}" class="btn btn-danger">Borrar</a>
-                                    <a href="/done/{{task.id}}" class="btn btn-success">Marcar como finalizada</a>
+                                <div class="card-footer ">
+                                    <a href="/delete/{{task.id}} " class="btn btn-danger ">Borrar</a>
+                                    <a href="/done/{{task.id}} " class="btn btn-success ">
+                                        {% if task.done %}
+                                        Marcar como no finalizada
+                                        {% else %}
+                                        Marcar como finalizada
+                                        {% endif %}
+                                    </a>
                                 </div>
-
                             </li>
                             {% endfor %}
                         </ul>
